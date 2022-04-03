@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<!-- saved from url=(0085)https://e-uczelnia.ath.bielsko.pl/pluginfile.php/33501/mod_resource/content/2/Lab2Ex2 -->
-<html><!--
+<html>
+<!--
    This web page does the minimal setup for using mouse events along
    with 2D canvas graphics.
---><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-<title>CS424, Lab 2, Exercise 2</title>
+-->
+<head>
+<meta charset="UTF-8">
+<title>Lab 2, Exercise 2</title>
 <style>
     /* This style section is here to make the canvas more obvious on the
        page.  It is white on a light gray page background, with a thin
@@ -34,7 +35,6 @@
 
     var canvas;    // The canvas element on which we will draw.
     var graphics;  // A 2D graphics context for drawing on the canvas.
-    
     /**
      * This function returns a string representing a random RGB color.
      * The returned string can be assigned as the value of graphics.fillStyle
@@ -59,7 +59,8 @@
         var startX, startY;    // coordinates of mouse at start of drag.
         var prevX, prevY;      // previous mouse position during a drag.
         
-        var colorChoice;  // Integer code for the selected color in the "colorChoide"
+        var colorChoice;
+        var figureChoice; // Integer code for the selected color in the "colorChoide"
                           // popup menu.  The value is assigned in doMouseDown.
         
         function doMouseDown(evt) {
@@ -83,6 +84,7 @@
                 document.addEventListener("mouseup", doMouseUp, false);
             }
             colorChoice = Number(document.getElementById("colorChoice").value);
+            figureChoice = Number(document.getElementById("figureChoice").value);
             // TODO: Anything else to do when mouse is first pressed?
         }
         
@@ -102,13 +104,13 @@
             if ( Math.abs(x-prevX) + Math.abs(y-prevY) < 3 ) {
                 return;  // don't draw squares too close together
             }
-                
+
+            
             if (colorChoice == 0) {
                 graphics.fillStyle = randomColorString();
             }
             else if (colorChoice == 1) {
                 graphics.fillStyle = "red";
-                graphics.strokeStyle = "red";
             }
             else if (colorChoice == 2) {
                 graphics.fillStyle = "green";
@@ -116,9 +118,23 @@
             else if (colorChoice == 3) {
                 graphics.fillStyle = "blue";
             }
-            graphics.fillRect(x-20,y-20,40,40);
-            graphics.strokeRect(x-20,y-20,40,40);
+            else if (colorChoice == 4) {
+                graphics.fillStyle = "purple";
+            }
+
             
+            if (figureChoice==1)
+            {
+                graphics.strokeCircle(x,y, 20);
+                graphics.fillCircle(x,y, 20);
+            }
+            else if (figureChoice==0)
+            {
+				graphics.fillRect(x-20,y-20,40,40);
+                graphics.strokeRect(x-20,y-20,40,40);
+            }
+
+
             /*------------------------------------------------------------*/
             
             prevX = x;  // update prevX,prevY to prepare for next call to doMouseMove
@@ -244,27 +260,41 @@
         installMouseHandler();
         graphics.fillStyle = "white";
         graphics.fillRect(0,0,canvas.width,canvas.height);
+
     }
+
+    function Clear()//Czyszczenie ekranu 
+		{
+		graphics.clearRect(0,0,800,600);
+		}
     
 </script>
 </head>
 <body onload="init()"> <!-- the onload attribute here is what calls the init() function -->
 
-<h2>Lab 2, Exercise 2: Mousing</h2>
+<h2>Lab 2, Exercise 2</h2>
 
 <noscript>
     <!-- This message will be shown in the page if JavaScript is not available. -->
 <p>JavaScript is required to use this page.</p>
 </noscript>
 
-<p><b>Color:</b>
-    <select id="colorChoice">
-        <option value="0">Random</option>
-        <option value="1">Red</option>
-        <option value="2">Green</option>
-        <option value="3">Blue</option>
+<p><b>Figura:</b>
+    <select id="figureChoice">
+        <option value="0">Kwadrat</option>
+        <option value="1">Koło</option>
     </select>
-</p>
+
+<p><b>Kolor:</b>
+<select id="colorChoice">
+    <option value="0">Random</option>
+    <option value="1">Red</option>
+    <option value="2">Green</option>
+    <option value="3">Blue</option>
+    <option value="4">Purple</option>
+</select>
+
+<button id="clearButton" onclick="Clear()">Clear</button>
 
 <div id="canvasholder">
 <canvas id="canvas" width="800" height="600">
@@ -273,5 +303,5 @@ Canvas not supported.
 </canvas>
 </div>
 
-
-</body></html>
+</body>
+</html>
