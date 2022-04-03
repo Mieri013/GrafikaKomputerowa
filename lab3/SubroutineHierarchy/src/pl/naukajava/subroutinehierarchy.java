@@ -111,7 +111,7 @@ public class subroutinehierarchy extends JPanel {
         g2.setTransform(saveTransform);
         g2.setStroke(new BasicStroke(2));
 
-        int n=13;
+        int n=12;
         double t=0,
                 k=(Math.PI*2)/n;
 
