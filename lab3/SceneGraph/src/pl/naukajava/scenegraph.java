@@ -218,7 +218,7 @@ public class scenegraph extends JPanel {
     private static SceneGraphNode F_Polygon = new SceneGraphNode()
     {void doDraw(Graphics2D g){
 
-        int n=13;
+        int n=12;
         double t=0,
                 k=(Math.PI*2)/n;
 
