@@ -116,10 +116,10 @@ public class Lab6 extends GLJPanel implements GLEventListener  {
 	
 		gl2.glBegin(GL2.GL_TRIANGLES); 
 		
-		gl2.glMaterialfv(GL2.GL_FRONT_AND_BACK, GL2.GL_AMBIENT, materials[10], 0); 
-		gl2.glMaterialfv( GL2.GL_FRONT_AND_BACK, GL2.GL_DIFFUSE, materials[10], 4 );
-		gl2.glMaterialfv( GL2.GL_FRONT_AND_BACK, GL2.GL_SPECULAR, materials[10], 8 );
-		gl2.glMaterialf( GL2.GL_FRONT_AND_BACK, GL2.GL_SHININESS, materials[10][12] );
+		gl2.glMaterialfv(GL2.GL_FRONT_AND_BACK, GL2.GL_AMBIENT, materials[5], 0); 
+		gl2.glMaterialfv( GL2.GL_FRONT_AND_BACK, GL2.GL_DIFFUSE, materials[5], 4 );
+		gl2.glMaterialfv( GL2.GL_FRONT_AND_BACK, GL2.GL_SPECULAR, materials[5], 8 );
+		gl2.glMaterialf( GL2.GL_FRONT_AND_BACK, GL2.GL_SHININESS, materials[5][12] );
 
 		float x0 = (float) Math.sin(0)*r;
 		float z0= (float) Math.cos(0)*r;
