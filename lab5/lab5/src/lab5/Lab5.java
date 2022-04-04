@@ -98,7 +98,7 @@ public class Lab5 extends GLJPanel implements GLEventListener, KeyListener {
 
        
         gl2.glBegin(GL.GL_LINE_STRIP);
-        gl2.glColor3f((float) 0.5, 0, 0);
+        gl2.glColor3f(1, 0, 1);
         while (y <= t) {
             nastKat = (kat * pi / 180);
             x = Math.cos(nastKat) * r;
